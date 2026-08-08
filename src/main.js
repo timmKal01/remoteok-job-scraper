@@ -4,6 +4,9 @@ const REMOTEOK_API_URL = 'https://remoteok.com/api';
 
 await Actor.init();
 
+/** Must match the event name configured in this Actor's pay-per-event pricing on Apify. */
+const JOB_SEARCH_COMPLETED_EVENT = 'job-search-completed';
+
 const input = (await Actor.getInput()) ?? {};
 const { tags = [], search = '', maxItems = 100 } = input;
 
@@ -64,6 +67,7 @@ const records = limited.map((job) => ({
 }));
 
 await Actor.pushData(records);
+await Actor.charge({ eventName: JOB_SEARCH_COMPLETED_EVENT });
 
 log.info(`Saved ${records.length} job listings to the dataset.`);
 
