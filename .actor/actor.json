@@ -1,0 +1,12 @@
+{
+    "actorSpecification": 1,
+    "name": "remoteok-job-scraper",
+    "title": "RemoteOK Job Scraper",
+    "description": "Scrape remote job listings from RemoteOK: title, company, tags, salary, and apply link, as clean JSON or CSV.",
+    "version": "0.1",
+    "meta": {
+        "templateId": "custom-no-proxy"
+    },
+    "input": "./input_schema.json",
+    "dockerfile": "../Dockerfile"
+}

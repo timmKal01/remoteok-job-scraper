@@ -1,0 +1,30 @@
+{
+    "title": "RemoteOK Job Scraper Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "tags": {
+            "title": "Tags / categories",
+            "type": "array",
+            "editor": "stringList",
+            "description": "Filter jobs by RemoteOK tag, e.g. \"javascript\", \"design\", \"marketing\". Leave empty to fetch all tags.",
+            "default": []
+        },
+        "search": {
+            "title": "Keyword search",
+            "type": "string",
+            "editor": "textfield",
+            "description": "Only keep jobs whose position, company, or description contains this keyword (case-insensitive). Leave empty to skip keyword filtering.",
+            "default": ""
+        },
+        "maxItems": {
+            "title": "Max jobs to return",
+            "type": "integer",
+            "editor": "number",
+            "description": "Maximum number of job listings to save to the dataset.",
+            "default": 100,
+            "minimum": 1
+        }
+    },
+    "required": []
+}
