@@ -78,6 +78,7 @@ Yes — pass an array of tags and the Actor keeps any job matching at least one 
 **Can I schedule this to run automatically?**
 Yes — use Apify's built-in [Scheduler](https://docs.apify.com/platform/schedules) to run it daily/hourly and feed a job alert bot, spreadsheet, or dashboard.
 
-## Related
+## Related products
 
-Looking for other job or lead-generation data? Check the [Apify Store](https://apify.com/store) for related scrapers, or reach out with a request for a custom-tagged version of this Actor.
+- [Company Hiring Tracker](https://github.com/timmKal01/company-hiring-tracker) — track a specific company's own Greenhouse/Lever board instead of an aggregator feed
+- [Company Buying Signal Report](https://github.com/timmKal01/company-buying-signal-report) — turn a company's hiring activity into a scored buying signal, plus contact info
