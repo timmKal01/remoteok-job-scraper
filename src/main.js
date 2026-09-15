@@ -2,6 +2,42 @@ import { Actor, log } from 'apify';
 
 const REMOTEOK_API_URL = 'https://remoteok.com/api';
 
+const TRANSIENT_STATUSES = new Set([429, 500, 502, 503, 504]);
+const MAX_ATTEMPTS = 4;
+const REQUEST_TIMEOUT_MS = 15_000;
+
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchWithRetry(url, options) {
+    let lastError;
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+        let res;
+        try {
+            res = await fetch(url, { ...options, signal: controller.signal });
+        } catch (err) {
+            lastError = err.name === 'AbortError' ? new Error(`Request timed out after ${REQUEST_TIMEOUT_MS}ms: ${url}`) : err;
+            if (attempt < MAX_ATTEMPTS) {
+                await sleep(1000 * 2 ** (attempt - 1));
+                continue;
+            }
+            throw lastError;
+        } finally {
+            clearTimeout(timeoutId);
+        }
+        if (res.ok) return res;
+        if (!TRANSIENT_STATUSES.has(res.status)) {
+            throw new Error(`RemoteOK API request failed with status ${res.status}`);
+        }
+        lastError = new Error(`RemoteOK API request failed with status ${res.status}`);
+        if (attempt < MAX_ATTEMPTS) await sleep(1000 * 2 ** (attempt - 1));
+    }
+    throw lastError;
+}
+
 await Actor.init();
 
 /** Must match the event name configured in this Actor's pay-per-event pricing on Apify. */
@@ -15,7 +51,7 @@ const searchTerm = String(search).toLowerCase().trim();
 
 log.info('Fetching RemoteOK job listings', { tags: normalizedTags, search: searchTerm, maxItems });
 
-const response = await fetch(REMOTEOK_API_URL, {
+const response = await fetchWithRetry(REMOTEOK_API_URL, {
     headers: {
         // RemoteOK rejects requests without a browser-like User-Agent.
         'User-Agent':
@@ -23,10 +59,6 @@ const response = await fetch(REMOTEOK_API_URL, {
         Accept: 'application/json',
     },
 });
-
-if (!response.ok) {
-    throw new Error(`RemoteOK API request failed with status ${response.status}`);
-}
 
 const rawJobs = await response.json();
 
