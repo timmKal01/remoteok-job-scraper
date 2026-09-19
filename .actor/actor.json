@@ -1,7 +1,7 @@
 {
     "actorSpecification": 1,
     "name": "remoteok-job-scraper",
-    "title": "RemoteOK Job Leads & Alerts — Recruiter Outreach, JSON/CSV Export",
+    "title": "RemoteOK Job Leads & Alerts: Recruiter Outreach, JSON/CSV Export",
     "description": "Turn RemoteOK's live job feed into ready-to-use leads: filter by tag or keyword and export clean records for recruiter outreach lists, job board feeds, or scheduled alert bots. No login, no proxy.",
     "version": "0.1",
     "meta": {

@@ -1,8 +1,8 @@
-# RemoteOK Job Scraper – Extract Remote Jobs as JSON, CSV, or Excel
+# RemoteOK Job Leads & Alerts: Recruiter Outreach, JSON/CSV Export
 
-**RemoteOK Job Scraper** pulls live remote job listings straight from RemoteOK's public job board and turns them into clean, structured data — job title, company, tags, salary range, location, and apply link — ready to export as JSON, CSV, or Excel, or push into Google Sheets, Airtable, or your own database via API.
+**RemoteOK Job Leads & Alerts** pulls live remote job listings straight from RemoteOK's public job board and turns them into clean, structured leads (job title, company, tags, salary range, location, and apply link), ready to export as JSON, CSV, or Excel, or push into Google Sheets, Airtable, or your own database via API.
 
-No login required. No proxies used. No browser automation — just a fast, reliable call to RemoteOK's own job feed, filtered the way you need it.
+No login required. No proxies used. No browser automation: just a fast, reliable call to RemoteOK's own job feed, filtered the way you need it.
 
 ## What does this Actor do?
 
@@ -58,7 +58,7 @@ flowchart LR
 
 1. Click **Try for free** (or **Run**) on this Actor's page.
 2. Optionally set `tags` and/or `search` to narrow results, and `maxItems` to cap the dataset size.
-3. Click **Start** and wait for the run to finish — it takes seconds.
+3. Click **Start** and wait for the run to finish: it takes seconds.
 4. Export the results from the **Dataset** tab as JSON, CSV, Excel, or connect it to Google Sheets/Airtable, or pull it programmatically via the [Apify API](https://docs.apify.com/api/v2).
 
 ## FAQ
@@ -67,18 +67,18 @@ flowchart LR
 No. It calls RemoteOK's own public job feed directly, so there's nothing to route through a proxy and no added proxy cost.
 
 **Do I need a RemoteOK account or API key?**
-No login or API key is required — the feed is public.
+No login or API key is required: the feed is public.
 
 **How fresh is the data?**
-As fresh as RemoteOK's own listings page — every run fetches the current feed at run time.
+As fresh as RemoteOK's own listings page: every run fetches the current feed at run time.
 
 **Can I filter by multiple tags at once?**
-Yes — pass an array of tags and the Actor keeps any job matching at least one of them.
+Yes: pass an array of tags and the Actor keeps any job matching at least one of them.
 
 **Can I schedule this to run automatically?**
-Yes — use Apify's built-in [Scheduler](https://docs.apify.com/platform/schedules) to run it daily/hourly and feed a job alert bot, spreadsheet, or dashboard.
+Yes: use Apify's built-in [Scheduler](https://docs.apify.com/platform/schedules) to run it daily/hourly and feed a job alert bot, spreadsheet, or dashboard.
 
 ## Related products
 
-- [Company Hiring Tracker](https://github.com/timmKal01/company-hiring-tracker) — track a specific company's own Greenhouse/Lever board instead of an aggregator feed
-- [Company Buying Signal Report](https://github.com/timmKal01/company-buying-signal-report) — turn a company's hiring activity into a scored buying signal, plus contact info
+- [Company Hiring Tracker](https://github.com/timmKal01/company-hiring-tracker): track a specific company's own Greenhouse/Lever board instead of an aggregator feed
+- [Company Buying Signal Report](https://github.com/timmKal01/company-buying-signal-report): turn a company's hiring activity into a scored buying signal, plus contact info

@@ -1,6 +1,6 @@
 {
     "actorOutputSchemaVersion": 1,
-    "title": "Output schema of RemoteOK Job Leads & Alerts — Recruiter Outreach, JSON/CSV Export",
+    "title": "Output schema of RemoteOK Job Leads & Alerts: Recruiter Outreach, JSON/CSV Export",
     "description": "Results are pushed to the default dataset, one record per item.",
     "properties": {
         "results": {
