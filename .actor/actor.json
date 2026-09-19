@@ -1,12 +1,13 @@
 {
     "actorSpecification": 1,
     "name": "remoteok-job-scraper",
-    "title": "RemoteOK Job Scraper",
-    "description": "Scrape remote job listings from RemoteOK: title, company, tags, salary, and apply link, as clean JSON or CSV.",
+    "title": "RemoteOK Job Leads & Alerts — Recruiter Outreach, JSON/CSV Export",
+    "description": "Turn RemoteOK's live job feed into ready-to-use leads: filter by tag or keyword and export clean records for recruiter outreach lists, job board feeds, or scheduled alert bots. No login, no proxy.",
     "version": "0.1",
     "meta": {
         "templateId": "custom-no-proxy"
     },
     "input": "./input_schema.json",
+    "output": "./output_schema.json",
     "dockerfile": "../Dockerfile"
 }
