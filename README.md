@@ -78,6 +78,12 @@ Yes: pass an array of tags and the Actor keeps any job matching at least one of 
 **Can I schedule this to run automatically?**
 Yes: use Apify's built-in [Scheduler](https://docs.apify.com/platform/schedules) to run it daily/hourly and feed a job alert bot, spreadsheet, or dashboard.
 
+## Pricing note
+
+Billed per **search run**, not per job returned: one charge covers fetching
+and filtering the current RemoteOK feed, whether it matches 0 jobs or the
+full capped list.
+
 ## Related products
 
 - [Company Hiring Tracker](https://github.com/timmKal01/company-hiring-tracker): track a specific company's own Greenhouse/Lever board instead of an aggregator feed
