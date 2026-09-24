@@ -1,6 +1,6 @@
-# RemoteOK Job Leads & Alerts: Recruiter Outreach, JSON/CSV Export
+# Remote Job Finder: RemoteOK Listings & Salaries
 
-**RemoteOK Job Leads & Alerts** pulls live remote job listings straight from RemoteOK's public job board and turns them into clean, structured leads (job title, company, tags, salary range, location, and apply link), ready to export as JSON, CSV, or Excel, or push into Google Sheets, Airtable, or your own database via API.
+**Remote Job Finder** pulls live remote job listings straight from RemoteOK's public job board and turns them into clean, structured leads (job title, company, tags, salary range, location, and apply link), ready to export as JSON, CSV, or Excel, or push into Google Sheets, Airtable, or your own database via API.
 
 No login required. No proxies used. No browser automation: just a fast, reliable call to RemoteOK's own job feed, filtered the way you need it.
 
