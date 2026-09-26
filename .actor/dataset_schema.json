@@ -1,0 +1,63 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": [
+                    "position",
+                    "company",
+                    "location",
+                    "salaryMin",
+                    "salaryMax",
+                    "tags",
+                    "datePosted",
+                    "url",
+                    "applyUrl"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "position": {
+                        "label": "Position",
+                        "format": "text"
+                    },
+                    "company": {
+                        "label": "Company",
+                        "format": "text"
+                    },
+                    "location": {
+                        "label": "Location",
+                        "format": "text"
+                    },
+                    "salaryMin": {
+                        "label": "Salary min",
+                        "format": "number"
+                    },
+                    "salaryMax": {
+                        "label": "Salary max",
+                        "format": "number"
+                    },
+                    "tags": {
+                        "label": "Tags",
+                        "format": "array"
+                    },
+                    "datePosted": {
+                        "label": "Date posted",
+                        "format": "date"
+                    },
+                    "url": {
+                        "label": "URL",
+                        "format": "link"
+                    },
+                    "applyUrl": {
+                        "label": "Apply URL",
+                        "format": "link"
+                    }
+                }
+            }
+        }
+    }
+}
