@@ -86,5 +86,5 @@ full capped list.
 
 ## Related products
 
-- [Company Hiring Tracker](https://github.com/timmKal01/company-hiring-tracker): track a specific company's own Greenhouse/Lever board instead of an aggregator feed
-- [Company Buying Signal Report](https://github.com/timmKal01/company-buying-signal-report): turn a company's hiring activity into a scored buying signal, plus contact info
+- [Company Job Openings Tracker](https://apify.com/m_ctim/company-hiring-tracker): track a specific company's own Greenhouse/Lever board instead of an aggregator feed
+- [Company Buying Signals](https://apify.com/m_ctim/company-buying-signal-report): turn a company's hiring activity into a scored buying signal, plus contact info
