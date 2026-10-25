@@ -83,8 +83,3 @@ Yes: use Apify's built-in [Scheduler](https://docs.apify.com/platform/schedules)
 Billed per **search run**, not per job returned: one charge covers fetching
 and filtering the current RemoteOK feed, whether it matches 0 jobs or the
 full capped list.
-
-## Related products
-
-- [Company Job Openings Tracker](https://apify.com/m_ctim/company-hiring-tracker): track a specific company's own Greenhouse/Lever board instead of an aggregator feed
-- [Company Buying Signals](https://apify.com/m_ctim/company-buying-signal-report): turn a company's hiring activity into a scored buying signal, plus contact info
