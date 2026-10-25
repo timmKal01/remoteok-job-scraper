@@ -6,26 +6,34 @@
             "title": "Overview",
             "transformation": {
                 "fields": [
-                    "position",
+                    "title",
                     "company",
+                    "source",
                     "location",
                     "salaryMin",
                     "salaryMax",
+                    "salaryCurrency",
+                    "salaryPeriod",
+                    "employmentType",
                     "tags",
-                    "datePosted",
-                    "url",
-                    "applyUrl"
+                    "postedAt",
+                    "jobUrl",
+                    "alsoListedOn"
                 ]
             },
             "display": {
                 "component": "table",
                 "properties": {
-                    "position": {
-                        "label": "Position",
+                    "title": {
+                        "label": "Title",
                         "format": "text"
                     },
                     "company": {
                         "label": "Company",
+                        "format": "text"
+                    },
+                    "source": {
+                        "label": "Board",
                         "format": "text"
                     },
                     "location": {
@@ -40,21 +48,33 @@
                         "label": "Salary max",
                         "format": "number"
                     },
+                    "salaryCurrency": {
+                        "label": "Currency",
+                        "format": "text"
+                    },
+                    "salaryPeriod": {
+                        "label": "Per",
+                        "format": "text"
+                    },
+                    "employmentType": {
+                        "label": "Type",
+                        "format": "text"
+                    },
                     "tags": {
                         "label": "Tags",
                         "format": "array"
                     },
-                    "datePosted": {
-                        "label": "Date posted",
+                    "postedAt": {
+                        "label": "Posted",
                         "format": "date"
                     },
-                    "url": {
-                        "label": "URL",
+                    "jobUrl": {
+                        "label": "Job page",
                         "format": "link"
                     },
-                    "applyUrl": {
-                        "label": "Apply URL",
-                        "format": "link"
+                    "alsoListedOn": {
+                        "label": "Also on",
+                        "format": "array"
                     }
                 }
             }

@@ -1,29 +1,82 @@
 {
-    "title": "RemoteOK Job Scraper Input",
+    "title": "Remote Jobs input",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
+        "sources": {
+            "title": "Job boards",
+            "type": "array",
+            "editor": "stringList",
+            "description": "Which boards to read: \"remoteok\" (Remote OK) and \"jobicy\" (Jobicy). Leave empty for both.",
+            "default": ["remoteok", "jobicy"],
+            "prefill": ["remoteok", "jobicy"]
+        },
         "tags": {
             "title": "Tags / categories",
             "type": "array",
             "editor": "stringList",
-            "description": "Filter jobs by RemoteOK tag, e.g. \"javascript\", \"design\", \"marketing\". Leave empty to fetch all tags.",
+            "description": "Keep jobs with any of these tags or categories, e.g. \"javascript\", \"design\", \"marketing\" (Remote OK tags and Jobicy categories). Case-insensitive, matches part of a tag. Leave empty for every job.",
             "default": []
         },
         "search": {
             "title": "Keyword search",
             "type": "string",
             "editor": "textfield",
-            "description": "Only keep jobs whose position, company, or description contains this keyword (case-insensitive). Leave empty to skip keyword filtering.",
+            "description": "Only keep jobs whose title, company or description contains this keyword (case-insensitive).",
             "default": ""
+        },
+        "locations": {
+            "title": "Locations",
+            "type": "array",
+            "editor": "stringList",
+            "description": "Keep jobs open to any of these places, e.g. \"USA\", \"Europe\", \"Worldwide\". Jobs that don't name a location are open to anywhere and are kept.",
+            "default": []
+        },
+        "postedWithinDays": {
+            "title": "Posted within (days)",
+            "type": "integer",
+            "editor": "number",
+            "description": "Only jobs posted in the last N days. Jobicy's feed covers the last 7 days; Remote OK's goes back further.",
+            "minimum": 1
+        },
+        "onlyWithSalary": {
+            "title": "Only jobs with a salary",
+            "type": "boolean",
+            "editor": "checkbox",
+            "description": "Skip jobs that don't publish a pay range.",
+            "default": false
         },
         "maxItems": {
             "title": "Max jobs to return",
             "type": "integer",
             "editor": "number",
-            "description": "Maximum number of job listings to save to the dataset.",
+            "description": "Maximum number of jobs to save, newest first.",
             "default": 100,
             "minimum": 1
+        },
+        "includeDescriptionHtml": {
+            "title": "Include the HTML description",
+            "type": "boolean",
+            "editor": "checkbox",
+            "description": "Add the original HTML description next to the plain-text one.",
+            "default": false
+        },
+        "mode": {
+            "title": "Mode",
+            "type": "string",
+            "editor": "select",
+            "enum": ["snapshot", "monitor"],
+            "enumTitles": ["Snapshot: every matching job", "Monitor: only jobs new since the last run"],
+            "description": "Schedule monitor mode to get only the jobs posted since the previous run.",
+            "default": "snapshot",
+            "sectionCaption": "Monitoring"
+        },
+        "monitorStoreName": {
+            "title": "Monitor store name",
+            "type": "string",
+            "editor": "textfield",
+            "description": "Key-value store that remembers which jobs were already returned. Use a different name for each separate monitor.",
+            "default": "remote-jobs-monitor"
         }
     },
     "required": []

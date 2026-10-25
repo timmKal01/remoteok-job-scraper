@@ -1,15 +1,16 @@
 {
     "name": "remoteok-job-scraper",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "type": "module",
-    "description": "Scrape remote job listings from RemoteOK's public API.",
+    "description": "Remote jobs from Remote OK and Jobicy in one format, deduplicated, with salaries, filters and a monitor mode.",
     "engines": {
-        "node": ">=18.0.0"
+        "node": ">=20.0.0"
     },
     "dependencies": {
         "apify": "^3.2.6"
     },
     "scripts": {
-        "start": "node src/main.js"
+        "start": "node src/main.js",
+        "test": "node --test"
     }
 }
