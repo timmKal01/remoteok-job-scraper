@@ -28,6 +28,8 @@ export async function fetchJson(url) {
         let res;
         try {
             res = await fetch(url, { headers: { 'User-Agent': USER_AGENT, Accept: 'application/json' }, signal: controller.signal });
+            // Read the body inside the timeout too: a board that sends headers and then stalls would otherwise hang the run.
+            if (res.ok) return await res.json();
         } catch (err) {
             lastError = err.name === 'AbortError' ? new Error(`Request timed out after ${REQUEST_TIMEOUT_MS / 1000}s: ${url}`) : err;
             if (attempt < MAX_ATTEMPTS) await sleep(1000 * 2 ** (attempt - 1));
@@ -35,7 +37,6 @@ export async function fetchJson(url) {
         } finally {
             clearTimeout(timeoutId);
         }
-        if (res.ok) return res.json();
         lastError = new Error(`${host} answered ${res.status}`);
         await res.body?.cancel().catch(() => {});
         if (!TRANSIENT_STATUSES.has(res.status)) throw lastError;
