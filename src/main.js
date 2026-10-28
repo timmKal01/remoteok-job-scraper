@@ -82,7 +82,7 @@ const rows = matching.slice(0, Math.max(0, maxItems)).map(({ descriptionHtml, ..
 }));
 
 if (rows.length) {
-    await Actor.pushData(rows);
+    await Actor.pushData(rows.map((row) => ({ rowType: 'job', ...row })));
 } else {
     // An empty dataset looks the same as a broken run, so say why nothing came back.
     const fetched = all.length;
@@ -91,7 +91,7 @@ if (rows.length) {
         : mode === 'monitor' && newCount === 0
             ? 'No new jobs since the last run.'
             : `None of the ${fetched} jobs fetched matched the filters.`;
-    await Actor.pushData({ title: 'No jobs in this run', note: reason, fetched, failures, scrapedAt });
+    await Actor.pushData({ rowType: 'note', title: 'No jobs in this run', note: reason, fetched, failures, scrapedAt });
 }
 await Actor.charge({ eventName: JOB_SEARCH_COMPLETED_EVENT });
 

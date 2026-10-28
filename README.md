@@ -17,6 +17,7 @@ Real output from a test run on 2026-10-25 (keyword "engineer", only jobs with a 
 
 ```json
 {
+  "rowType": "job",
   "source": "jobicy",
   "sourceName": "Jobicy",
   "jobId": "156858",
@@ -44,6 +45,7 @@ A Remote OK row from the same run (tags and description shortened):
 
 ```json
 {
+  "rowType": "job",
   "source": "remoteok",
   "sourceName": "Remote OK",
   "jobId": "1137568",
@@ -60,6 +62,8 @@ A Remote OK row from the same run (tags and description shortened):
   "attribution": "Job via Remote OK: https://remoteOK.com/remote-jobs/remote-solutions-engineer-onebrief-1137568"
 }
 ```
+
+`rowType` is `"job"`. A run with no jobs to return saves one `"note"` row with a `note` saying why.
 
 ## What it costs
 
